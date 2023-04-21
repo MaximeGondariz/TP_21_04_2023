@@ -1,0 +1,27 @@
+body{
+    background-color: aqua;
+}
+
+#listeStudents{
+    margin-top : 10px;
+    margin-bottom : 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+#formulaire{
+    margin-top : 10px;
+    margin-bottom : 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.divStudents{
+    margin: 10px;
+}
