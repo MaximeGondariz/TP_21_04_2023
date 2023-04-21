@@ -1,31 +1,50 @@
-const http = require("http");
+import { createServer } from "http";
 const hostname = 'localhost';
 const port = '8000';
-let fs = require('fs');
+import { readFile } from 'fs';
 
-const data = JSON.parse(fs.readFileSync("./Data/students.json"));
-const students = data.students
-
-const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        "Content-Type": "text/html",
-    });
-
+const server = createServer((req, res) => {
     const url = req.url.replace('/', '');
     if(url === ""){
-        fs.readFile('./view/home.html', null, function (error, data) {
+        res.writeHead(200, {
+            "Content-Type": "text/html",
+        });
+    
+        
+
+        readFile('./view/home.html', null, function (error, data) {
             if (error) {
                 res.writeHead(404);
                 res.write('Whoops! File not found!');
             } else {
-                fs.readFile('./assets/css/style.css', null, function (error, data) {
-                    if (error) {
-                        res.writeHead(404);
-                        res.write('Whoops! File not found!');
-                    } else {
-                        res.write(data);
-                    }
-                });
+                res.write(data);
+            }
+            res.end();
+        });
+    }else if(url === "assets/css/style.css"){
+        res.writeHead(200, {
+            "Content-Type": "text/css",
+        });
+
+        readFile('./assets/css/style.css', null, function (error, data) {
+            if (error) {
+                res.writeHead(404);
+                res.write('Whoops! File not found!');
+            } else {
+                res.write(data);
+            }
+            res.end();
+        });
+    }else if(url === "assets/js/home.js"){
+        res.writeHead(200, {
+            "Content-Type": "text/javascript",
+        });
+
+        readFile('./assets/js/home.js', null, function (error, data) {
+            if (error) {
+                res.writeHead(404);
+                res.write('Whoops! File not found!');
+            } else {
                 res.write(data);
             }
             res.end();

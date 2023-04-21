@@ -3,7 +3,9 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-    <h1>Liste des élèves</h1>
+    <div id="titre">
+        <h1>Liste des élèves</h1>
+    </div>
     <div id="listeStudents">
         
     </div>
@@ -19,36 +21,4 @@
         <button onclick="addStudent()">Valider</button>
     </div>
 </body>
-<script>
-    const students = [
-        { name : "Sonia", birth : "2019-14-05"},
-        { name : "Antoine", birth : "2000-12-05"},
-        { name : "Alice", birth : "1990-14-09"},
-        { name : "Sophie", birth : "2001-10-02"},
-        { name : "Bernard", birth : "1980-21-08"}
-    ];
-    let id = 0
-    students.forEach(student => {
-        document.getElementById("listeStudents").innerHTML += '<div id="student'+id+'" class="divStudents">'+student.name+' / '+student.birth+'<button onclick="deleteStudent('+id+')">X</button></div>'
-        id++
-    })
-
-    function deleteStudent(index){
-        const div = document.getElementById("listeStudents");
-        for(let i = 0; i<div.children.length;i++){
-            if(div.children[i].id === "student"+index){
-                div.removeChild(div.children[i])
-            }
-        }
-    }
-
-    function addStudent(){
-        const name = document.getElementById("nameInput").value;
-        const date = document.getElementById("dateInput").value;
-
-        if(name && date){
-            document.getElementById("listeStudents").innerHTML += '<div id="student'+id+'" class="divStudents">'+name+' / '+date+'<button onclick="deleteStudent('+id+')">X</button></div>'
-            id++
-        }
-    }
-</script>
+<script type="module" src="./../assets/js/home.js"></script>

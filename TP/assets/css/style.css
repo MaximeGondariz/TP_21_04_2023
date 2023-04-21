@@ -1,5 +1,11 @@
-body{
-    background-color: aqua;
+#titre{
+    margin-top : 10px;
+    margin-bottom : 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
 }
 
 #listeStudents{
@@ -24,4 +30,13 @@ body{
 
 .divStudents{
     margin: 10px;
+}
+
+.divStudents>button{
+    margin-left : 10px;
+    margin-right : 10px;
+}
+
+.redOutline{
+    border : 1px solid red
 }
